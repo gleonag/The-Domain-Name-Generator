@@ -11,9 +11,20 @@ window.onload = function() {
   var pronoun = ["the", "our"];
   var adj = ["great", "big"];
   var noun = ["jogger", "racoon"];
-  var randomName = Math.random() * 100;
-  for (let i = 0; i < 9; i++) {
-    return randomName;
+  var domain = [".es", ".com", ".cat", ".net"];
+  let excuse =
+    getExcuseDomain(pronoun) +
+    getExcuseDomain(adj) +
+    getExcuseDomain(noun) +
+    getExcuseDomain(domain);
+
+  document.querySelector("#excuse").innerHTML = excuse;
+  function getExcuseDomain(array) {
+    let position = getRandomInt(array.length);
+    return array[position];
   }
-  console.log("Hello Rigo from the console!");
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 };
